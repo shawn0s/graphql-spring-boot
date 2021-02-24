@@ -4,10 +4,14 @@ import com.gql.models.Book;
 import com.gql.models.BookInput;
 import com.gql.services.BookService;
 import graphql.kickstart.tools.GraphQLMutationResolver;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
+@AllArgsConstructor
 public class Mutation implements GraphQLMutationResolver {
 
     @Autowired
@@ -17,6 +21,8 @@ public class Mutation implements GraphQLMutationResolver {
         Book book = new Book();
         book.setName(bookInput.getName());
         book.setDescription(bookInput.getDescription());
+        book.setAuthorId(bookInput.getAuthorId());
+        book.setCreatedAt(new Date());
         return bookService.create(book);
     }
 

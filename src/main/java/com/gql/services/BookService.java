@@ -5,6 +5,7 @@ import com.gql.repositories.BookReposity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,6 +18,10 @@ public class BookService {
         Optional<Book> bookOpt= bookReposity.findById(id);
         return bookOpt.orElse(null);
 
+    }
+
+    public List<Book> getAllBooks(){
+        return bookReposity.findAll();
     }
     public Book update(Book book){
         return bookReposity.save(book);
