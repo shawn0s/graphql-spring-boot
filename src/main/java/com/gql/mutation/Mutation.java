@@ -1,5 +1,6 @@
 package com.gql.mutation;
 
+import com.gql.DateUtil;
 import com.gql.models.Book;
 import com.gql.models.BookInput;
 import com.gql.services.BookService;
@@ -22,7 +23,7 @@ public class Mutation implements GraphQLMutationResolver {
         book.setName(bookInput.getName());
         book.setDescription(bookInput.getDescription());
         book.setAuthorId(bookInput.getAuthorId());
-        book.setCreatedAt(new Date());
+        book.setCreatedAt(DateUtil.convertToLocalDateViaInstant(new Date()));
         return bookService.create(book);
     }
 

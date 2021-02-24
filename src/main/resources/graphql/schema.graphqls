@@ -3,7 +3,7 @@ type Query {
     getBook(id: String!): Book
     getAllBooks: [Book]
 }
-scalar DateTime
+#scalar DateTime
 scalar Date
 #scalar BigDecimal
 
@@ -16,7 +16,7 @@ type Book{
     name: String
     description: String
     author: Author
-    createdAt: String
+    createdAt: Date
 }
 
 type Author{
@@ -26,6 +26,7 @@ type Author{
 }
 
 input BookInput{
+    id:ID
     name: String
     description: String
     authorId: String

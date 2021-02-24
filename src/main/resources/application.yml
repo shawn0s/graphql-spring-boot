@@ -10,7 +10,6 @@ spring:
       database: graphqldemo
 
 graphql:
-  extended-scalars: DateTime, Date
   servlet:
     # Sets if GraphQL servlet should be created and exposed. If not specified defaults to "true".
     enabled: true
